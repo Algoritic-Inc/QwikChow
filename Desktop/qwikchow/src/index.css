@@ -1,0 +1,9 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;600;700&display=swap");
+@import "tailwindcss";
+
+:root {
+  --brand-green: #0c513f;
+  --brand-light-green: #3c695d;
+  --brand-yellow: #f6cc42;
+}
