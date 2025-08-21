@@ -1,47 +1,65 @@
-import type { FC } from "react";
-import { ShieldCheck, Clock, Smartphone, Truck } from "lucide-react";
+// components/Features.tsx
+import React from 'react';
 
-const features = [
-  {
-    icon: <Smartphone className="w-10 h-10 text-green-700" />,
-    title: "Browse Menus & Order Fast",
-    desc: "Explore hundreds of campus restaurants and place orders in under 2 minutes",
-  },
-  {
-    icon: <ShieldCheck className="w-10 h-10 text-yellow-600" />,
-    title: "Pay Securely",
-    desc: "Choose from M-Pesa, Flutterwave, Paystack, or card payments",
-  },
-  {
-    icon: <Clock className="w-10 h-10 text-red-600" />,
-    title: "Cancel Anytime in 1 Minute",
-    desc: "Changed your mind? Cancel within 60 seconds for a full refund",
-  },
-  {
-    icon: <Truck className="w-10 h-10 text-blue-600" />,
-    title: "Live Order Tracking",
-    desc: "Track your food from kitchen to your door with real-time updates",
-  },
-];
+const Features: React.FC = () => {
+  const studentFeatures = [
+    {
+      title: 'Live Order Tracking',
+      description: 'Ditch the anxiety. Know exactly where your food is in the process.'
+    },
+    {
+      title: 'Campus-Wide Variety',
+      description: 'One app for every craving—from dining halls to local gems.'
+    },
+    {
+      title: 'Reorder in a Tap',
+      description: 'Your favorite meal is just one click away.'
+    }
+  ];
 
-const Features: FC = () => {
+  const restaurantFeatures = [
+    {
+      title: 'Reach More Students',
+      description: 'Get discovered by hundreds of hungry students on campus.'
+    },
+    {
+      title: 'Streamlined Order Management',
+      description: 'A simple dashboard to receive and manage orders without the phone chaos.'
+    },
+    {
+      title: 'Data-Driven Insights',
+      description: 'Learn what\'s popular and when your busy times are.'
+    }
+  ];
+
   return (
-    <section className="py-16 bg-gray-50 text-center" id="features">
-      <h2 className="text-3xl font-bold mb-4">Why Students Love QwikChow</h2>
-      <p className="text-gray-600 mb-12">
-        Built for campus life - fast, secure, and student-friendly
-      </p>
-      <div className="grid md:grid-cols-4 gap-6 max-w-6xl mx-auto px-6">
-        {features.map((f, i) => (
-          <div
-            key={i}
-            className="bg-white rounded-xl shadow p-6 flex flex-col items-center"
-          >
-            {f.icon}
-            <h3 className="mt-4 font-semibold text-lg">{f.title}</h3>
-            <p className="text-gray-500 mt-2">{f.desc}</p>
+    <section id="features" className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center text-gray-900 mb-12">Why You'll Love QwikChow</h2>
+        
+        <div className="mb-16">
+          <h3 className="text-2xl font-semibold text-center text-gray-800 mb-8">For Students</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {studentFeatures.map((feature, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h4>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
           </div>
-        ))}
+        </div>
+
+        <div>
+          <h3 className="text-2xl font-semibold text-center text-gray-800 mb-8">For Restaurants</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {restaurantFeatures.map((feature, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-sm">
+                <h4 className="text-lg font-semibold text-gray-900 mb-2">{feature.title}</h4>
+                <p className="text-gray-600">{feature.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

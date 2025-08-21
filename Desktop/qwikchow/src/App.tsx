@@ -1,9 +1,3 @@
-// import Navbar from "./components/Navbar";
-// import Hero from "./components/Hero";
-// import Features from "./components/Features";
-// import Testimonials from "./components/Testimonials";
-// import FAQ from "./components/FAQ";
-
 import {
   BrowserRouter as Router,
   Routes,
@@ -23,20 +17,20 @@ const RequestReset = lazy(() => import("./pages/RequestReset"));
 const ChangePassword = lazy(() => import("./pages/ChangePassword"));
 const ConfirmEmail = lazy(() => import("./pages/ConfirmEmail"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const LandingPage = lazy(() => import("./LandingPage"));
 
 const App: React.FC = () => {
   return (
     <Router>
       <Suspense fallback={<SplashScreen />}>
         <Routes>
-          <Route path="/" element={<Navigate to="/sign-in" replace />} />
+          <Route path="/" element={<Navigate to="/landing-page" replace />} />
+          <Route path="/landing-page" element={<LandingPage />} />
           <Route path="/sign-in" element={<SignIn />} />
-
           <Route path="/sign-up" element={<SignUp />} />
           <Route path="/terms&conds" element={<TermsAndConditions />} />
           <Route path="/signup/verify-email" element={<VerifyEmail />} />
           <Route path="/dashboard" element={<Dashboard />} />
-
           <Route path="/reset-password" element={<RequestReset />} />
           <Route
             path="/reset-password/confirm-email"
@@ -49,15 +43,10 @@ const App: React.FC = () => {
           position="top-right"
           richColors
           toastOptions={{
-            success: {
-              className:
-                "bg-green-500 text-white font-bold rounded-lg shadow-lg",
-            },
-            error: {
-              className: "bg-red-500 text-white font-bold rounded-lg shadow-lg",
-            },
-            default: {
-              className: "bg-gray-700 text-white rounded-md",
+            classNames: {
+              success: "bg-green-500 text-white font-bold rounded-lg shadow-lg",
+              error: "bg-red-500 text-white font-bold rounded-lg shadow-lg",
+              default: "bg-gray-700 text-white rounded-md",
             },
           }}
         />
