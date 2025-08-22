@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import Waitlist from './components/Waitlist';
-import ForRestaurants from './components/ForRestaurants';
+import ForRestaurants from './components/VisionSection';
 import Footer from './components/Footer';
 
 const LandingPage: React.FC = () => {

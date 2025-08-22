@@ -5,7 +5,7 @@ import { MdFoodBank, MdDevices } from 'react-icons/md';
 
 const Hero = () => {
   return (
-    <section className="relative bg-gradient-to-br from-[#1a2e1a] via-[#2a3e2a] to-[#1a2e1a] py-16 md:py-24 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-[#1a2e1a] via-[#2a3e2a] to-[#1a2e1a] py-16 md:py-24 overflow-hidden h-100vh">
       {/* Background Video with Overlay */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/50 z-10"></div>
@@ -15,7 +15,7 @@ const Hero = () => {
           muted
           playsInline
           className="w-full h-full object-cover"
-          poster="https://res.cloudinary.com/dzibfknxq/image/upload/v1755846215/Patrimoine_culinaire_africain_re%CC%81invente%CC%81_par_la_nouvelle_ge%CC%81ne%CC%81ration_de_chefs_invoxg.jpg"
+          poster="https://res.cloudinary.com/dzibfknxq/image/upload/v1755846215/Download_free_image_of_Noodle_asian_food_spaghetti_pasta_plate__about_food_plate_table_vegetable_and_still_life_12398616_iz4kjk.jpg"
         >
           <source
             src="https://assets.mixkit.co/videos/preview/mixkit-food-being-prepared-in-a-restaurant-kitchen-7619-large.mp4"
