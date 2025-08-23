@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
               {[
                 { name: 'How It Works', url: '#how-it-works' },
                 { name: 'Features', url: '#features' },
-                { name: 'For Restaurants', url: '#for-restaurants' },
+                { name: 'Vision', url: '#vision' },
                 { name: 'Careers', url: '/careers' }
               ].map((item, index) => (
                 <li key={index}>
@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold text-lg text-white mb-2">Stay Updated</h3>
               <p className="text-gray-300 text-sm">Get the latest news and updates about our expansion</p>
             </div>
-            <div className="flex-1 w-full">
+            <div className="flex-1 w-[80%]">
               <div className="flex gap-2">
                 <input 
                   type="email" 
@@ -137,12 +137,6 @@ const Footer: React.FC = () => {
             © {new Date().getFullYear()} QwikChow. All rights reserved.
           </p>
           
-          {/* Additional links */}
-          <div className="flex items-center space-x-6 text-sm text-gray-400 mb-4 md:mb-0">
-            <a href="/privacy" className="hover:text-[#22C55E] transition-colors duration-300">Privacy</a>
-            <a href="/terms" className="hover:text-[#22C55E] transition-colors duration-300">Terms</a>
-            <a href="/cookies" className="hover:text-[#22C55E] transition-colors duration-300">Cookies</a>
-          </div>
           
           {/* Algoritic Inc branding */}
           <div className="flex items-center space-x-2 bg-gray-800/50 px-4 py-2 rounded-xl border border-gray-700/50">

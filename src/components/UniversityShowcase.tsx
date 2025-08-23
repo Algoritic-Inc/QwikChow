@@ -11,68 +11,68 @@ const UniversityShowcase: React.FC = () => {
       {
         name: "University of Lagos",
         location: "Lagos, Nigeria",
-        students: "45,000+",
-        image: "https://images.unsplash.com/photo-1541339907198-e08756dedf3f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        launchDate: "Q1 2024",
+        // students: "45,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755989728/enz2khvv4dgtoauy1n8l.jpg",
+        launchDate: "Q4 2025",
         description: "One of Nigeria's premier universities with a vibrant student community."
       },
       {
         name: "University of Benin",
         location: "Benin City, Nigeria",
-        students: "40,000+",
-        image: "https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        launchDate: "Q1 2024",
+        // students: "40,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755989892/dble84923qqw31qzs2np.jpg",
+        launchDate: "Q4 2025",
         description: "A leading institution known for its academic excellence and diverse student body."
       },
       {
-        name: "Covenant University",
-        location: "Ota, Nigeria",
-        students: "10,000+",
-        image: "https://images.unsplash.com/photo-1591123120675-6f7f1aae0e5b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1469&q=80",
-        launchDate: "Q2 2024",
-        description: "A private university with state-of-the-art facilities and a growing student population."
+        name: "LAUTECH",
+        location: "Ogbomoso, Nigeria",
+        // students: "35,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755989907/shgenano15xbj0wajysi.jpg",
+        launchDate: "Q4 2025",
+        description: "A leading technology university known for its strong engineering and science programs with a vibrant student community."
       },
       {
         name: "University of Ibadan",
         location: "Ibadan, Nigeria",
-        students: "35,000+",
-        image: "https://images.unsplash.com/photo-1571624436279-b272aff752b5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80",
-        launchDate: "Q2 2024",
+        // students: "35,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755990024/cw927qcybioaqh9uvp7q.jpg",
+        launchDate: "Q4 2025",
         description: "Nigeria's oldest degree-awarding institution with a rich academic heritage."
       }
     ],
     benin: [
       {
-        name: "University of Abomey-Calavi",
+        name: "ESTAM University",
         location: "Cotonou, Benin Republic",
-        students: "25,000+",
-        image: "https://images.unsplash.com/photo-1524178232400-38d816f003ae?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80",
-        launchDate: "Q3 2024",
-        description: "The largest university in Benin Republic, known for its diverse academic programs."
+        // students: "5,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755990368/images_afn6ld.jpg",
+        launchDate: "Q4 2025",
+        description: "A private university offering business and technology programs with a focus on practical skills development."
       },
       {
-        name: "University of Parakou",
-        location: "Parakou, Benin Republic",
-        students: "15,000+",
-        image: "https://images.unsplash.com/photo-1498242731510-8ddc18b7d2e0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        launchDate: "Q3 2024",
-        description: "A growing institution serving the northern region of Benin Republic."
+        name: "ESTG",
+        location: "Cotonou, Benin Republic", 
+        // students: "3,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755990464/a6pflppzgmrxquboyz61.png",
+        launchDate: "Q4 2025",
+        description: "A specialized institution focused on technology and management education, preparing students for professional careers."
       },
       {
-        name: "African School of Economics",
-        location: "Abomey-Calavi, Benin Republic",
-        students: "2,000+",
-        image: "https://images.unsplash.com/photo-1607237138185-eedd9c632b0b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
-        launchDate: "Q4 2024",
-        description: "A prestigious institution focused on economics and social sciences."
+        name: "WAUU",
+        location: "Cotonou, Benin Republic",
+        // students: "2,500+", 
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755991016/ovyc5nhuq7yvrcvwp8dl.jpg",
+        launchDate: "Q4 2025",
+        description: "A faith-based university offering holistic education with a focus on character development and academic excellence."
       },
       {
-        name: "Institut Régional de Santé Publique",
-        location: "Ouidah, Benin Republic",
-        students: "1,500+",
-        image: "https://images.unsplash.com/photo-1582573618381-c9a77c31f6b6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1472&q=80",
-        launchDate: "Q4 2024",
-        description: "Specialized institution for public health studies and research."
+        name: "ESPAM",
+        location: "Cotonou, Benin Republic",
+        // students: "4,000+",
+        image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755991263/e4vx82gisv6sufakay8e.jpg",
+        launchDate: "Q3 2025",
+        description: "A prestigious institution specializing in administrative and managerial education, producing future business leaders."
       }
     ]
   };
@@ -228,7 +228,7 @@ const UniversityShowcase: React.FC = () => {
         </AnimatePresence>
 
         {/* Call to Action */}
-        <motion.div 
+        {/* <motion.div 
           className="text-center mt-16"
           variants={fadeInUp}
           initial="initial"
@@ -250,7 +250,7 @@ const UniversityShowcase: React.FC = () => {
               </button>
             </div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );
