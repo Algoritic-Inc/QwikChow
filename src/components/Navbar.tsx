@@ -1,6 +1,6 @@
 // components/Navbar.tsx
 import React, { useState, useEffect } from 'react';
-import { FaBars, FaTimes, FaUser, FaUserPlus, FaLeaf } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser, FaUserPlus } from 'react-icons/fa';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -34,13 +34,13 @@ const Navbar: React.FC = () => {
         <div className="max-w-7xl mx-auto flex justify-between items-center">
           {/* Logo */}
           <div className="flex items-center">
-            <span className={`text-2xl font-bold flex items-center transition-colors duration-500 ${
-              isScrolled ? 'text-[#2D3436]' : 'text-white'
-            }`}>
-              <span className="text-[#22C55E]">Qwik</span>
-              <span className={isScrolled ? 'text-[#2D3436]' : 'text-white'}>Chow</span>
-              <FaLeaf className="text-[#22C55E] ml-1 text-lg" />
-            </span>
+            <div className="h-10 w-40 relative"> {/* Adjust width and height as needed */}
+              <img
+                src="https://res.cloudinary.com/dzibfknxq/image/upload/v1755919271/WhatsApp_Image_2025-08-23_at_4.20.22_AM-removebg-preview_ozhnuw.png" // Replace with your actual logo path
+                alt="QwikChow Logo"
+                className="object-contain"
+              />
+            </div>
           </div>
           
           {/* Desktop Navigation - Centered */}
