@@ -19,22 +19,22 @@ const ChangePassword: React.FC = () => {
 
     // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
 
-    // setLoading(true);
-    // try {
-    //   const res = await fetch("/api/reset-password", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ token, password }),
-    //   });
-    //   if (!res.ok) throw new Error("Failed to reset password");
+    setLoading(true);
+    try {
+      const res = await fetch("/api/reset-password", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ token, password }),
+      });
+      if (!res.ok) throw new Error("Failed to reset password");
 
-    //   toast.success("Password changed successfully!");
-    //   navigate("/sign-in");
-    // } catch (err: any) {
-    //   toast.error(err.message);
-    // } finally {
-    //   setLoading(false);
-    // }
+      toast.success("Password changed successfully!");
+      navigate("/sign-in");
+    } catch (err: any) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

@@ -4,7 +4,7 @@ import { toast } from "sonner";
 
 const ConfirmEmail: React.FC = () => {
   const [otp, setOtp] = useState(["", "", "", "", ""]);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false); // Removed setLoading since it's unused
   const [timer, setTimer] = useState(60); // 60 seconds countdown
   const navigate = useNavigate();
   const email = new URLSearchParams(useLocation().search).get("email") || "";
@@ -53,7 +53,8 @@ const ConfirmEmail: React.FC = () => {
     }
   };
 
-  const handleVerify = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Changed from FormEvent to MouseEvent
+  const handleVerify = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     const code = otp.join("");
@@ -62,11 +63,11 @@ const ConfirmEmail: React.FC = () => {
 
     if (code === "12345") {
       toast.success(`Verified for ${email}!`);
+      navigate(`/reset-password/new?token=dataresttoken`);
     }
 
-    navigate(`/reset-password/new?token=dataresttoken`);
-
     // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
+
     // setLoading(true);
     // try {
     //   const res = await fetch("/api/verify-otp", {
@@ -90,20 +91,20 @@ const ConfirmEmail: React.FC = () => {
     if (timer > 0) return;
     // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
 
-    // try {
-    //   const res = await fetch("/api/resend-otp", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ email }),
-    //   });
-    //   const data = await res.json();
-    //   if (!res.ok) throw new Error(data.message || "Failed to resend OTP");
+    try {
+      const res = await fetch("/api/resend-otp", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Failed to resend OTP");
 
-    //   toast.success("OTP resent successfully!");
-    //   setTimer(60); // reset timer
-    // } catch (err: any) {
-    //   toast.error(err.message);
-    // }
+      toast.success("OTP resent successfully!");
+      setTimer(60); // reset timer
+    } catch (err: any) {
+      toast.error(err.message);
+    }
   };
 
   return (
@@ -122,34 +123,34 @@ const ConfirmEmail: React.FC = () => {
         <p className="mb-6 text-center text-white/90">
           Enter the OTP sent to <strong>{maskEmail(email)}</strong>
         </p>
-        <form>
-          {/* OTP Inputs */}
-          <div className="flex justify-center gap-3 mb-6">
-            {otp.map((digit, i) => (
-              <input
-                key={i}
-                type="text"
-                maxLength={1}
-                value={digit}
-                ref={(el) => {
-                  inputRefs.current[i] = el;
-                }}
-                onChange={(e) => handleChange(e.target.value, i)}
-                onKeyDown={(e) => handleKeyDown(e, i)}
-                className="w-14 h-14 md:w-16 md:h-16 text-center rounded-xl bg-[var(--brand-light-green)] text-white text-2xl font-bold shadow-inner focus:outline-none focus:ring-4 focus:ring-yellow-400 transition-all"
-              />
-            ))}
-          </div>
+        
+        {/* OTP Inputs */}
+        <div className="flex justify-center gap-3 mb-6">
+          {otp.map((digit, i) => (
+            <input
+              key={i}
+              type="text"
+              maxLength={1}
+              value={digit}
+              ref={(el) => {
+                inputRefs.current[i] = el;
+              }}
+              onChange={(e) => handleChange(e.target.value, i)}
+              onKeyDown={(e) => handleKeyDown(e, i)}
+              className="w-14 h-14 md:w-16 md:h-16 text-center rounded-xl bg-[var(--brand-light-green)] text-white text-2xl font-bold shadow-inner focus:outline-none focus:ring-4 focus:ring-yellow-400 transition-all"
+            />
+          ))}
+        </div>
 
-          {/* Verify Button */}
-          <button
-            disabled={loading}
-            onClick={handleVerify}
-            className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[var(--brand-green)] font-semibold rounded-xl shadow-lg hover:scale-105 transform transition"
-          >
-            {loading ? "Verifying..." : "Verify"}
-          </button>
-        </form>
+        {/* Verify Button */}
+        <button
+          type="button" // Added type="button"
+          disabled={loading}
+          onClick={handleVerify} // Now this matches the correct event type
+          className="w-full py-3 bg-gradient-to-r from-yellow-400 to-yellow-500 text-[var(--brand-green)] font-semibold rounded-xl shadow-lg hover:scale-105 transform transition"
+        >
+          {loading ? "Verifying..." : "Verify"}
+        </button>
 
         {/* Resend OTP */}
         <div className="mt-4 text-center">

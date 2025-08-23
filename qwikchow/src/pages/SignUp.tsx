@@ -8,7 +8,7 @@ const SignUp: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const [loading] = useState(false); // Removed setLoading since it's unused
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -16,7 +16,8 @@ const SignUp: React.FC = () => {
     if (hasAccepted) setAcceptedTerms(true);
   }, []);
 
-  const handleSignUp = async (e: React.FormEvent<HTMLFormElement>) => {
+  // Changed from FormEvent to MouseEvent
+  const handleSignUp = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (!firstName || !lastName || !email || !password) {
       return toast.error("Please fill in all fields");
@@ -86,7 +87,7 @@ const SignUp: React.FC = () => {
 
       {/* Right Side - Form */}
       <div className="md:w-1/2 flex items-center justify-center p-6">
-        <div className="w-full max-w-md space-y-5">
+        <form className="w-full max-w-md space-y-5">
           <h1 className="text-2xl md:text-3xl font-bold text-white">
             Create an account
           </h1>
@@ -142,7 +143,8 @@ const SignUp: React.FC = () => {
           </div>
 
           <button
-            onClick={handleSignUp}
+            type="button" // Added type="button"
+            onClick={handleSignUp} // Now this matches the correct event type
             disabled={loading}
             className="w-full bg-[var(--brand-yellow)] text-[var(--brand-green)] font-semibold py-3 rounded-md disabled:opacity-50"
           >
@@ -169,16 +171,22 @@ const SignUp: React.FC = () => {
 
           {/* Social Buttons */}
           <div className="flex flex-col md:flex-row gap-4">
-            <button className="w-full border rounded-md py-3 flex items-center justify-center gap-2 text-white">
+            <button 
+              type="button" 
+              className="w-full border rounded-md py-3 flex items-center justify-center gap-2 text-white"
+            >
               <img src="/google.png" alt="Google" className="w-5 h-5" />
               Google
             </button>
-            <button className="w-full border rounded-md py-3 flex items-center justify-center gap-2 text-white">
+            <button 
+              type="button" 
+              className="w-full border rounded-md py-3 flex items-center justify-center gap-2 text-white"
+            >
               <img src="/apple.png" alt="Apple" className="w-5 h-5" />
               Apple
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   );
