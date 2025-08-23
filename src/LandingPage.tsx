@@ -7,6 +7,7 @@ import Features from './components/Features';
 import Waitlist from './components/Waitlist';
 import VisionSection from './components/VisionSection';
 import UniversityShowcase from './components/UniversityShowcase';
+import CareerSection from './components/CareerSection';
 import Footer from './components/Footer';
 
 
@@ -17,6 +18,7 @@ const LandingPage: React.FC = () => {
       <Hero />
       <HowItWorks />
       <Features />
+      <CareerSection />
       <UniversityShowcase />
       <Waitlist />
       <VisionSection />
