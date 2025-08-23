@@ -16,7 +16,7 @@ const LandingPage: React.FC = () => {
       <HowItWorks />
       <Features />
       <VisionSection />
-      <Waitlist />
+      {/* <Waitlist /> */}
       <Footer />
     </div>
   );
