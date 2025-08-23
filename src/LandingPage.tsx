@@ -5,7 +5,7 @@ import Hero from './components/Hero';
 import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import Waitlist from './components/Waitlist';
-import ForRestaurants from './components/VisionSection';
+import VisionSection from './components/VisionSection';
 import Footer from './components/Footer';
 
 const LandingPage: React.FC = () => {
@@ -15,8 +15,8 @@ const LandingPage: React.FC = () => {
       <Hero />
       <HowItWorks />
       <Features />
+      <VisionSection />
       <Waitlist />
-      <ForRestaurants />
       <Footer />
     </div>
   );
