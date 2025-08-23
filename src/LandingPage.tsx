@@ -6,7 +6,9 @@ import HowItWorks from './components/HowItWorks';
 import Features from './components/Features';
 import Waitlist from './components/Waitlist';
 import VisionSection from './components/VisionSection';
+import UniversityShowcase from './components/UniversityShowcase';
 import Footer from './components/Footer';
+
 
 const LandingPage: React.FC = () => {
   return (
@@ -15,6 +17,7 @@ const LandingPage: React.FC = () => {
       <Hero />
       <HowItWorks />
       <Features />
+      <UniversityShowcase />
       <VisionSection />
       {/* <Waitlist /> */}
       <Footer />

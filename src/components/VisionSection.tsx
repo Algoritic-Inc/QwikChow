@@ -30,11 +30,11 @@ const cardRise = {
 const VisionSection = () => {
   const countries = [
     { flag: "🇬🇭", name: "Ghana", year: "2026" },
-    { flag: "🇿🇦", name: "South Africa", year: "2026" },
+    { flag: "🇿🇦", name: "South Africa", year: "2027" },
     { flag: "🇰🇪", name: "Kenya", year: "2027" },
-    { flag: "🇪🇬", name: "Egypt", year: "2027" },
+    { flag: "🇪🇬", name: "Egypt", year: "2028" },
     { flag: "🇷🇼", name: "Rwanda", year: "2028" },
-    { flag: "🇪🇹", name: "Ethiopia", year: "2028" },
+    { flag: "🇪🇹", name: "Ethiopia", year: "2029" },
   ];
 
   return (
