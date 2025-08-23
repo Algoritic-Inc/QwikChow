@@ -48,7 +48,8 @@ const Navbar: React.FC = () => {
             {[
               { id: 'how-it-works', label: 'How It Works' },
               { id: 'features', label: 'Features' },
-              { id: 'for-restaurants', label: 'For Restaurants' },
+              { id: 'vision', label: 'Vision' },
+              { id: 'career', label: 'Careers' },
             ].map((item) => (
               <a
                 key={item.id}
