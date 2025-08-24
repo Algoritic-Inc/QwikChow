@@ -25,19 +25,19 @@ const HowItWorks: React.FC = () => {
     <section id="how-it-works" className="py-20 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+      {/* Development Status Badge */}
+      <div className="inline-flex items-center bg-[#22C55E]/10 text-[#22C55E] px-4 py-2 rounded-full mb-6">
+        <FaTools className="mr-2" />
+        <span className="font-medium">In Development - Coming Soon</span>
+      </div>
+   
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             How <span className="text-[#22C55E]">QwikChow</span> Will Work
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Here's how you'll enjoy campus dining once we launch
           </p>
-          
-          {/* Development Status Badge */}
-          <div className="inline-flex items-center bg-[#22C55E]/10 text-[#22C55E] px-4 py-2 rounded-full mt-6">
-            <FaTools className="mr-2" />
-            <span className="font-medium">In Development - Coming Soon</span>
-          </div>
-        </div>
+           </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
           {/* Connecting line for desktop */}
@@ -53,7 +53,7 @@ const HowItWorks: React.FC = () => {
                 </div>
                 
                 {/* Step number */}
-                <div className="absolute -top-3 -right-3 w-8 h-8 bg-[#22C55E]  text-white rounded-full flex items-center justify-center font-bold text-sm">
+                <div className="absolute top-1 left-1 w-8 h-8 bg-[#22C55E]  text-white rounded-full flex items-center justify-center font-bold text-sm">
                   {index + 1}
                 </div>
                 

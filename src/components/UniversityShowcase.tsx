@@ -17,12 +17,12 @@ const UniversityShowcase: React.FC = () => {
         description: "One of Nigeria's premier universities with a vibrant student community."
       },
       {
-        name: "University of Benin",
-        location: "Benin City, Nigeria",
-        // students: "40,000+",
+        name: "OOU",
+        location: "Ago-Iwoye, Nigeria",
+       // students: "35,000+",
         image: "https://res.cloudinary.com/dzibfknxq/image/upload/v1755989892/dble84923qqw31qzs2np.jpg",
         launchDate: "Q4 2025",
-        description: "A leading institution known for its academic excellence and diverse student body."
+        description: "A prestigious state university known for its quality education and vibrant campus life in Ogun State."
       },
       {
         name: "LAUTECH",
@@ -195,12 +195,12 @@ const UniversityShowcase: React.FC = () => {
                       <span>{university.location}</span>
                     </div>
                     
-                    <div className="flex items-center text-sm text-gray-500">
+                    {/* <div className="flex items-center text-sm text-gray-500">
                       <svg className="w-4 h-4 text-[#22C55E] mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                       </svg>
                       <span>{university.students} students</span>
-                    </div>
+                    </div> */}
                     
                     <div className="flex items-center text-sm text-gray-500">
                       <FaCalendarAlt className="text-[#22C55E] mr-2" />
@@ -208,19 +208,6 @@ const UniversityShowcase: React.FC = () => {
                     </div>
                   </div>
                   
-                  <div className="mt-6 pt-4 border-t border-gray-100">
-                    <div className="flex items-center">
-                      <div className="flex-1 bg-gray-200 rounded-full h-2">
-                        <div 
-                          className="bg-gradient-to-r from-[#22C55E] to-[#16A34A] h-2 rounded-full" 
-                          style={{ width: `${Math.random() * 30 + 70}%` }}
-                        ></div>
-                      </div>
-                      <span className="ml-3 text-sm font-medium text-[#22C55E]">
-                        {Math.floor(Math.random() * 30 + 70)}% Ready
-                      </span>
-                    </div>
-                  </div>
                 </div>
               </motion.div>
             ))}

@@ -39,6 +39,7 @@ const VisionSection = () => {
 
   return (
     <motion.section
+    id = 'vision'
       className="py-16 relative overflow-hidden"
       initial="initial"
       whileInView="animate"
@@ -55,10 +56,10 @@ const VisionSection = () => {
           variants={fadeInUp}
         >
           <motion.div 
-            className="flex items-center justify-center mb-6"
+            className="flex items-center justify-center mb-2"
             variants={fadeInUp}
           >
-            <FaGlobeAfrica className="text-[#22C55E] text-4xl" />
+            <FaGlobeAfrica className="text-[#22C55E] text-4xl mt-3" />
           </motion.div>
           
           <motion.h2

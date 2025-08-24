@@ -3,7 +3,7 @@ import React from 'react';
 import { 
   FaMapMarkerAlt, 
   FaUtensils, 
-  FaRedo, 
+  FaTimesCircle, 
   FaTools,
   FaUsers, 
   FaClipboardList, 
@@ -25,9 +25,9 @@ const Features: React.FC = () => {
       description: 'One app for every craving—from dining halls to local gems.'
     },
     {
-      icon: <FaRedo className="text-2xl" />,
-      title: 'Reorder in a Tap',
-      description: 'Your favorite meal is just one click away.'
+      icon: <FaTimesCircle className="text-2xl" />,
+      title: 'Cancel Mistaken Orders',
+      description: 'Quickly cancel accidental orders within 1 minute at no charge.'
     }
   ];
 
@@ -53,18 +53,17 @@ const Features: React.FC = () => {
     <section id="features" className="py-20 bg-gradient-to-b from-gray-100 to-gray-50">
      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
+           {/* Development Status Badge */}
+           <div className="inline-flex items-center bg-[#22C55E]/10 text-[#22C55E] px-4 py-2 rounded-full mb-6">
+            <FaTools className="mr-2" />
+            <span className="font-medium">In Active Development</span>
+          </div>
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Coming Soon: <span className="text-[#22C55E]">QwikChow</span> Features
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             We're building something amazing for campus dining. Here's what to expect.
           </p>
-          
-          {/* Development Status Badge */}
-          <div className="inline-flex items-center bg-[#22C55E]/10 text-[#22C55E] px-4 py-2 rounded-full mt-6">
-            <FaTools className="mr-2" />
-            <span className="font-medium">In Active Development</span>
-          </div>
         </div>
         
         {/* For Students Section */}

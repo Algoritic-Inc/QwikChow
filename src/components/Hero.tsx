@@ -1,6 +1,6 @@
 // components/Hero.jsx
-import { FaReceipt, FaClock, FaUser, FaGlobe, FaLaptop } from 'react-icons/fa';
-import { IoRestaurant, IoFastFood, IoPhonePortrait } from 'react-icons/io5';
+import { FaReceipt, FaClock,FaGlobeAfrica,FaGlobe, FaList,FaTablet, FaLaptop } from 'react-icons/fa';
+import { IoRestaurant, IoPhonePortrait } from 'react-icons/io5';
 import { MdFoodBank, MdDevices } from 'react-icons/md';
 
 const Hero = () => {
@@ -46,24 +46,16 @@ const Hero = () => {
           Food delivery reimagined for African university students. No more long queues, get your favorite meals delivered directly to your hostel or lecture hall.
           </p>
           <div className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4">
-            <a href='' className="bg-[#22C55E] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#16A34A] transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl">
-              <FaGlobe className="mr-3" /> Join Student Waitlist
+            <a href='#Waitlist' className="bg-[#22C55E] text-white px-8 py-4 rounded-xl font-semibold hover:bg-[#16A34A] transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl">
+              <FaList className="mr-3" /> Join Student Waitlist
             </a>
-            <a href='' className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 backdrop-blur-sm flex items-center">
-              <IoRestaurant className="mr-2" /> Partner as Restaurant
+            <a href='/partner' className="bg-white/10 text-white border border-white/20 px-8 py-4 rounded-xl font-semibold hover:bg-white/20 transition-all duration-300 backdrop-blur-sm justify-center flex items-center">
+              <IoRestaurant className="mr-3" /> Partner as Restaurant
             </a>
           </div>
           <div className="mt-10 flex items-center">
-            <div className="flex -space-x-3 mr-4">
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-[#22C55E] flex items-center justify-center">
-                <FaUser className="text-white text-xs" />
-              </div>
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-[#4ade80] flex items-center justify-center">
-                <FaUser className="text-white text-xs" />
-              </div>
-              <div className="w-10 h-10 rounded-full border-2 border-white bg-[#16A34A] flex items-center justify-center">
-                <FaUser className="text-white text-xs" />
-              </div>
+            <div className="flex item-center justify-center -space-x-3 mr-4">
+                < FaGlobeAfrica className="text-[#22C55E] text-4xl" />
             </div>
             <p className="text-gray-300 text-sm">Starting in Nigeria and Benin Republic, with plans to expand across the beautiful continent of Africa</p>
           </div>
@@ -86,7 +78,7 @@ const Hero = () => {
                   <p className="text-white text-sm">Laptop</p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 text-center">
-                  <IoFastFood className="text-[#22C55E] text-2xl mx-auto mb-2" />
+                  <FaTablet className="text-[#22C55E] text-2xl mx-auto mb-2" />
                   <p className="text-white text-sm">Tablet</p>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4 text-center">

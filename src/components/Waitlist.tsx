@@ -26,7 +26,7 @@ const Waitlist: React.FC = () => {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[#0F172A] to-[#1E293B] relative overflow-hidden">
+    <section id='Waitlist' className="py-20 bg-gradient-to-br from-[#0F172A] to-[#1E293B] relative overflow-hidden">
       {/* Background elements */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-10 left-10 w-72 h-72 bg-[#22C55E]/10 rounded-full blur-3xl"></div>
@@ -159,7 +159,7 @@ const Waitlist: React.FC = () => {
         )}
 
         {/* Stats */}
-        <motion.div
+        {/* <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
@@ -178,7 +178,7 @@ const Waitlist: React.FC = () => {
             <div className="text-2xl md:text-3xl font-bold text-white mb-2">98%</div>
             <div className="text-gray-400 text-sm">Satisfaction Rate</div>
           </div>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

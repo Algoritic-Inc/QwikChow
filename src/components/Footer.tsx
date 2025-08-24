@@ -73,7 +73,7 @@ const Footer: React.FC = () => {
                 { name: 'How It Works', url: '#how-it-works' },
                 { name: 'Features', url: '#features' },
                 { name: 'Vision', url: '#vision' },
-                { name: 'Careers', url: '/careers' }
+                { name: 'Careers', url: '#rider-careers' }
               ].map((item, index) => (
                 <li key={index}>
                   <a href={item.url} className="text-gray-300 hover:text-[#22C55E] transition-colors duration-300 flex items-center group text-sm">
@@ -116,7 +116,7 @@ const Footer: React.FC = () => {
               <h3 className="font-semibold text-lg text-white mb-2">Stay Updated</h3>
               <p className="text-gray-300 text-sm">Get the latest news and updates about our expansion</p>
             </div>
-            <div className="flex-1 w-[80%]">
+            <div className="flex-1 w-full">
               <div className="flex gap-2">
                 <input 
                   type="email" 
