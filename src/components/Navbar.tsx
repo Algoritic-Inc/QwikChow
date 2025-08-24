@@ -47,9 +47,9 @@ const Navbar: React.FC = () => {
           <div className="hidden md:flex absolute left-1/2 transform -translate-x-1/2 space-x-12">
             {[
               { id: 'how-it-works', label: 'How It Works' },
-              { id: 'features', label: 'Features' },
               { id: 'vision', label: 'Vision' },
-              { id: 'rider-careers', label: 'Careers' },
+              { id: 'features', label: 'Features' },
+              // { id: 'rider-careers', label: 'Careers' },
             ].map((item) => (
               <a
                 key={item.id}
@@ -113,9 +113,9 @@ const Navbar: React.FC = () => {
           <div className="flex flex-col space-y-1">
             {[
                 { id: 'how-it-works', label: 'How It Works' },
-                { id: 'features', label: 'Features' },
                 { id: 'vision', label: 'Vision' },
-                { id: 'rider-careers', label: 'Careers' },
+                { id: 'features', label: 'Features' },
+                // { id: 'rider-careers', label: 'Careers' },
             ].map((item) => (
               <a
                 key={item.id}

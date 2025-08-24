@@ -136,9 +136,9 @@ const Footer: React.FC = () => {
             <ul className="space-y-3.5">
               {[
                 { name: 'How It Works', url: '#how-it-works' },
-                { name: 'Features', url: '#features' },
                 { name: 'Vision', url: '#vision' },
-                { name: 'Careers', url: '#rider-careers' }
+                { name: 'Features', url: '#features' },
+                // { name: 'Careers', url: '#rider-careers' }
               ].map((item, index) => (
                 <li key={index}>
                   <a href={item.url} className="text-gray-300 hover:text-[#22C55E] transition-colors duration-300 flex items-center group text-sm">

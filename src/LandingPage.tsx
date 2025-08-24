@@ -7,7 +7,7 @@ import Features from './components/Features';
 import Waitlist from './components/Waitlist';
 import VisionSection from './components/VisionSection';
 import UniversityShowcase from './components/UniversityShowcase';
-import CareerSection from './components/CareerSection';
+// import CareerSection from './components/CareerSection';
 import Footer from './components/Footer';
 
 
@@ -17,11 +17,11 @@ const LandingPage: React.FC = () => {
       <Navbar />
       <Hero />
       <HowItWorks />
+      <VisionSection />
       <Features />
-      <CareerSection />
+      {/* <CareerSection /> */}
       <UniversityShowcase />
       <Waitlist />
-      <VisionSection />
       <Footer />
     </div>
   );
