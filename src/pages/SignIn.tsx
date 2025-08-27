@@ -10,6 +10,7 @@ const SignIn: React.FC = () => {
   const [password, setPassword] = useState("");
   const [rememberMe, setRememberMe] = useState(false);
   const [loading, setLoading] = useState(false);
+  const API_BASE_URL = 'https://qwikchow.onrender.com';
 
   const handleSignIn = async () => {
     if (!email || !password) {
@@ -20,10 +21,10 @@ const SignIn: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/sign-in", {
+      const res = await fetch(`${API_BASE_URL}/api/student/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ identifier: email, password }),
       });
 
       const data = await res.json();

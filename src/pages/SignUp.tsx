@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
+import axios from 'axios';
 
 const SignUp: React.FC = () => {
   const [firstName, setFirstName] = useState("");
@@ -8,9 +9,9 @@ const SignUp: React.FC = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [acceptedTerms, setAcceptedTerms] = useState(false);
-  const [loading] = useState(false); // Removed setLoading since it's unused
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const API_BASE_URL = 'https://qwikchow.onrender.com'
   useEffect(() => {
     const hasAccepted = localStorage.getItem("acceptedTerms") === "true";
     if (hasAccepted) setAcceptedTerms(true);
@@ -26,44 +27,38 @@ const SignUp: React.FC = () => {
     if (!acceptedTerms)
       return toast.error("You must agree to the Terms & Conditions");
 
-    navigate(`/signup/verify-email?email=${encodeURIComponent(email)}`);
+    //navigate(`/signup/verify-email?email=${encodeURIComponent(email)}`);
 
-    // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
-    // setLoading(true);
+    //I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
+    setLoading(true);
 
-    // try {
-    //   const res = await fetch("/api/sign-up", {
-    //     method: "POST",
-    //     headers: {
-    //       "Content-Type": "application/json",
-    //     },
-    //     body: JSON.stringify({
-    //       firstName,
-    //       lastName,
-    //       email,
-    //       password,
-    //     }),
-    //   });
+    try {
+      const res = await axios.post(`${API_BASE_URL}/api/student/register`, {
+          firstName,
+          lastName,
+          email,
+          password }
+        );
 
-    //   const data = await res.json();
+      const data = await res.data;
 
-    //   if (!res.ok) {
-    //     return toast.error(data.message || "Something went wrong");
-    //   }
+      if (res.status != 200) {
+        throw data;
+      }
 
-    //   // backend sends a token after signup
-    //   if (data.token) {
-    //     localStorage.setItem("authToken", data.token);
-    //   }
+      // backend sends a token after signup
+      if (data.token) {
+        localStorage.setItem("authToken", data.token);
+      }
 
-    //   // Navigate to verify email page (or dashboard if auto-verified)
-    //   navigate(`/signup/verify-email?email=${encodeURIComponent(email)}`);
-    // } catch (err) {
-    //   console.error(err);
-    //   toast.error("Failed to sign up. Try again later.");
-    // } finally {
-    //   setLoading(false);
-    // }
+      // Navigate to verify email page (or dashboard if auto-verified)
+      navigate(`/signup/verify-email?email=${encodeURIComponent(email)}`);
+    } catch (err: any) {
+      console.error(err);
+      toast.error(`${err.response.data.message}`);
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (

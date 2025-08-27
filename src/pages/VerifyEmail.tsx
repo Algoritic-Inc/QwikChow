@@ -2,15 +2,15 @@ import React, { useState, useRef, useEffect } from "react";
 import { useSearchParams, useNavigate } from "react-router-dom";
 import { toast } from "sonner";
 import { VerificationSuccess } from "../components/VerificationSuccess";
-
 const VerifyEmail: React.FC = () => {
   const [searchParams] = useSearchParams();
   const email = searchParams.get("email") || "your email";
   const navigate = useNavigate();
-
+  
   const [otpValues, setOtpValues] = useState<string[]>(Array(5).fill(""));
   const inputRefs = useRef<HTMLInputElement[]>([]);
   const [isVerified, setIsVerified] = useState(false);
+  const API_BASE_URL = 'https://qwikchow.onrender.com'
 
   // Mask email
   const maskedEmail = email.replace(
@@ -53,32 +53,32 @@ const VerifyEmail: React.FC = () => {
       return;
     }
 
-    if (otp === "12345") {
-      toast.success(`OTP verified for ${email}!`);
-      setIsVerified((is) => !is);
-    } else {
-      toast.error("Invalid OTP.");
-    }
+    //if (otp === "12345") {
+    //  toast.success(`OTP verified for ${email}!`);
+    //  setIsVerified((is) => !is);
+    //} else {
+    //  toast.error("Invalid OTP.");
+    //}
 
     // will be active after backend implimentation
-    // try {
-    //   const res = await fetch("/api/verify-otp", {
-    //     method: "POST",
-    //     body: JSON.stringify({ email, otp }),
-    //     headers: { "Content-Type": "application/json" },
-    //   });
-    //   const data = await res.json();
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/otp/verify`, {
+        method: "POST",
+        body: JSON.stringify({ email, otp }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
 
-    //   if (data.success) {
-    //     toast.success(`OTP verified for ${email}!`);
-    //     setIsVerified((is) => !is);
-    //     setTimeout(() => navigate("/dashboard"), 3000);
-    //   } else {
-    //     toast.error(data.message || "Invalid OTP.");
-    //   }
-    // } catch {
-    //   toast.error("Something went wrong. Try again.");
-    // }
+      if (data.success) {
+        toast.success(`OTP verified for ${email}!`);
+        setIsVerified((is) => !is);
+        setTimeout(() => navigate("/dashboard"), 3000);
+      } else {
+        toast.error(data.message || "Invalid OTP.");
+      }
+    } catch {
+      toast.error("Something went wrong. Try again.");
+    }
   };
 
   // Timer for resend
@@ -90,13 +90,27 @@ const VerifyEmail: React.FC = () => {
     return () => clearInterval(interval);
   }, []);
 
-  const handleResend = () => {
-    toast(`OTP resent to ${email}`);
-    setTimer(60);
-    setOtpValues(Array(5).fill(""));
-    inputRefs.current[0]?.focus();
+  const handleResend = async () => {
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/otp/request`, {
+        method: "POST",
+        body: JSON.stringify({ email }),
+        headers: { "Content-Type": "application/json" },
+      });
+      const data = await res.json();
 
-    //actual resend api here
+      if (data.success) {
+        toast(`OTP resent to ${email}`);
+        setTimer(60);
+        setOtpValues(Array(5).fill(""));
+        inputRefs.current[0]?.focus();
+      } else {
+        throw "Error Resending OTP"
+      }
+    } catch {
+      toast.error("Something went wrong. Try again.");
+    }
+    
   };
 
   if (isVerified) {
