@@ -8,7 +8,7 @@ const RequestReset: React.FC = () => {
   const [email, setEmail] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-
+  const API_BASE_URL = 'https://qwikchow.onrender.com' //'http://localhost:5000' 
   // Changed from FormEvent to MouseEvent
   const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
@@ -18,7 +18,7 @@ const RequestReset: React.FC = () => {
     setLoading(true);
 
     try {
-      const res = await fetch("/api/request-reset", {
+      const res = await fetch(`${API_BASE_URL}/api/mail/reset`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

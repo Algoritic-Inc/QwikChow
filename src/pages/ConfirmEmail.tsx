@@ -4,12 +4,12 @@ import { toast } from "sonner";
 
 const ConfirmEmail: React.FC = () => {
   const [otp, setOtp] = useState(["", "", "", "", ""]);
-  const [loading] = useState(false); // Removed setLoading since it's unused
+  const [loading, setLoading ] = useState(false); // Removed setLoading since it's unused
   const [timer, setTimer] = useState(60); // 60 seconds countdown
   const navigate = useNavigate();
   const email = new URLSearchParams(useLocation().search).get("email") || "";
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
-
+  const API_BASE_URL = 'https://qwikchow.onrender.com' //'http://localhost:5000' 
   // Mask email for privacy
   const maskEmail = (email: string) => {
     const [user, domain] = email.split("@");
@@ -58,33 +58,32 @@ const ConfirmEmail: React.FC = () => {
     e.preventDefault();
 
     const code = otp.join("");
-    if (code.length !== otp.length)
-      return toast.error("Please enter the complete OTP.");
-
-    if (code === "12345") {
-      toast.success(`Verified for ${email}!`);
-      navigate(`/reset-password/new?token=dataresttoken`);
-    }
+    if (code.length !== otp.length) return toast.error("Please enter the complete OTP.");
+//
+    //if (code === "12345") {
+    //  toast.success(`Verified for ${email}!`);
+    //  navigate(`/reset-password/new?token=dataresttoken`);
+    //}
 
     // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
 
-    // setLoading(true);
-    // try {
-    //   const res = await fetch("/api/verify-otp", {
-    //     method: "POST",
-    //     headers: { "Content-Type": "application/json" },
-    //     body: JSON.stringify({ email, code }),
-    //   });
+    setLoading(true);
+    try {
+      const res = await fetch(`${API_BASE_URL}/api/otp/reset/verify`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, otp: code}),
+      });
 
-    //   const data = await res.json();
-    //   if (!res.ok) throw new Error(data.message || "Invalid OTP");
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.message || "Invalid OTP");
 
-    //   navigate(`/reset-password/new?token=${data.resetToken}`);
-    // } catch (err: any) {
-    //   toast.error(err.message);
-    // } finally {
-    //   setLoading(false);
-    // }
+      navigate(`/reset-password/new?token=${data.resetToken}`);
+    } catch (err: any) {
+      toast.error(err.message);
+    } finally {
+      setLoading(false);
+    }
   };
 
   const handleResend = async () => {
@@ -92,7 +91,7 @@ const ConfirmEmail: React.FC = () => {
     // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
 
     try {
-      const res = await fetch("/api/resend-otp", {
+      const res = await fetch(`${API_BASE_URL}/api/mail/reset`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),

@@ -8,7 +8,7 @@ const ChangePassword: React.FC = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const token = new URLSearchParams(useLocation().search).get("token") || "";
-
+  const API_BASE_URL = 'https://qwikchow.onrender.com' //'http://localhost:5000' 
   const handleChangePassword = async () => {
     if (password !== confirm) return toast.error("Password not match");
 
@@ -17,17 +17,16 @@ const ChangePassword: React.FC = () => {
       navigate("/sign-in");
     }
 
-    // I WILL UNCOMMENT AFTER BACKEND IMPLEMENTATION
-
     setLoading(true);
     try {
-      const res = await fetch("/api/reset-password", {
+      const res = await fetch(`${API_BASE_URL}/api/auth/reset-password`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ token, password }),
+        body: JSON.stringify({ token, newPassword: password }),
       });
-      if (!res.ok) throw new Error("Failed to reset password");
-
+      if (!res.ok) {
+        throw new Error("Failed to reset password");
+      }
       toast.success("Password changed successfully!");
       navigate("/sign-in");
     } catch (err: any) {
